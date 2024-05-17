@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+    <br />
+
+    <div *ngIf="selected">
+      <app-anime-detail [animeDetail]="selectedAnime"></app-anime-detail>
+    </div>
+
+    <hr />
+    <br />
+
+  
+  <div class="row">
+    <h6>La cantidad total de episodios es <strong><mark><span>{{totalEpisodes()}}</span></mark></strong> y el rating promedio es {{calculateAverageRating()}}</h6>
+    <div class="col mb-6" *ngFor="let anime of animes">
+      <div class="card p-2" style="width: 15rem; height: 33rem">
+        <h5 class="card-title" style="text-align: center;">{{ anime.name }}</h5>
+        <img
+          class="card-img-top"
+          src="{{ anime.img }}"
+          alt="{{ anime.name }}"
+        />
+        <div class="card-body">
+          <p class="card-text">⭐ {{ anime.Rating }}</p>
+          <p class="card-text"><strong>Categories: </strong>{{ anime.categorie }}</p>
+          <a href="#" class="btn btn-primary" (click)="onSelected(anime)">More Information</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
